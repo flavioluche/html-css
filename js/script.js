@@ -24,7 +24,14 @@ bmiResult = markBmi > johnBmi;
 console.log('Does Mark has a bigger BMI than John? ' + bmiResult);
 
 
-//Which teams win in average
+/* 
+*Basics of Javascript
+* ++
+* - If / Else Statements
+* - Boolean logic
+* - Switch Statements
+*/
+//Which teams win by the average
 
 var johnGameOne, johnGameTwo, johnGameThree
 
@@ -51,7 +58,7 @@ maryGameOne = 97; //97
 
 maryGameTwo = 134; //134
 
-MaryGameThree = 105; //105
+maryGameThree = 105; //105
 
 /* //forcing a draw
 
@@ -91,7 +98,6 @@ if (teamJohnAvg > teamMikeAvg){
 } */
 
 
-
 //using switch case
 
 switch(true){
@@ -117,5 +123,56 @@ switch(true){
         console.log('John\'s and Mary\'s teams are tied with an average of ' + teamJohnAvg + ' while Mike\'s team have an average of ' + teamMikeAvg);
         break;
     default:
-        console.log('Games aren\'nt finished yet!');
+        console.log('Games aren\'t finished yet!');
 }
+
+
+/* 
+*Basics of Javascript
+* - Functions
+* - Arrays
+*/
+
+//tips calculator
+function tipsCalculator(bill1, bill2, bill3){
+
+    var tips  = [];
+
+    var totalbill = [];
+
+    
+    if (bill1 < 50) {
+        tips.push (bill1 * 0.2);
+    } else if (bill1 >= 50 && bill1 <= 200){
+        tips.push (bill1 * 0.15);
+    } else if (bill1 > 200){
+        tips.push (bill1 * 0.1);
+    }
+    totalbill.push(bill1+tips[0]);
+
+    if (bill2 < 50) {
+        tips.push (bill2 * 0.2);
+    } else if (bill2 >= 50 && bill2 <= 200){
+        tips.push (bill2 * 0.15);
+    } else if (bill2 > 200){
+        tips.push (bill2 * 0.1);
+    }
+    totalbill.push(bill2+tips[1]);
+
+    if (bill3 < 50) {
+        tips.push (bill3 * 0.2);
+    } else if (bill3 >= 50 && bill3 <= 200){
+        tips.push (bill3 * 0.15);
+    } else if (bill3 > 200){
+        tips.push (bill3 * 0.1);
+    }
+    totalbill.push(bill3+tips[2]);
+
+    console.log(tips);
+    console.log(totalbill);
+
+    
+
+}
+
+tipsCalculator(124,48,268);
