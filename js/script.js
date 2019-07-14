@@ -134,45 +134,28 @@ switch(true){
 */
 
 //tips calculator
-function tipsCalculator(bill1, bill2, bill3){
-
-    var tips  = [];
-
-    var totalbill = [];
-
+function tipsCalculator(bill){
     
-    if (bill1 < 50) {
-        tips.push (bill1 * 0.2);
-    } else if (bill1 >= 50 && bill1 <= 200){
-        tips.push (bill1 * 0.15);
-    } else if (bill1 > 200){
-        tips.push (bill1 * 0.1);
+    if (bill < 50) {
+        return bill * 0.2;
+    } else if (bill >= 50 && bill <= 200){
+        return bill * 0.15;
+    } else if (bill > 200){
+        return bill * 0.1;
     }
-    totalbill.push(bill1+tips[0]);
-
-    if (bill2 < 50) {
-        tips.push (bill2 * 0.2);
-    } else if (bill2 >= 50 && bill2 <= 200){
-        tips.push (bill2 * 0.15);
-    } else if (bill2 > 200){
-        tips.push (bill2 * 0.1);
-    }
-    totalbill.push(bill2+tips[1]);
-
-    if (bill3 < 50) {
-        tips.push (bill3 * 0.2);
-    } else if (bill3 >= 50 && bill3 <= 200){
-        tips.push (bill3 * 0.15);
-    } else if (bill3 > 200){
-        tips.push (bill3 * 0.1);
-    }
-    totalbill.push(bill3+tips[2]);
-
-    console.log(tips);
-    console.log(totalbill);
-
-    
 
 }
 
-tipsCalculator(124,48,268);
+var tips = [], totalBills = [];
+
+//tips.push(tipsCalculator(124));
+//tips.push(tipsCalculator(48));
+//tips.push(tipsCalculator(268));
+tips = [tipsCalculator(124), tipsCalculator(48), tipsCalculator(268)]
+
+totalBills.push(tips[0]+124);
+totalBills.push(tips[1]+48);
+totalBills.push(tips[2]+268);
+console.log(tips);
+console.log(totalBills);
+//tipsCalculator(124,48,268);
