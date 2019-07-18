@@ -100,7 +100,7 @@ if (teamJohnAvg > teamMikeAvg){
 
 //using switch case
 
-switch(true){
+switch (true) {
     case teamJohnAvg > teamMikeAvg && teamJohnAvg > teamMaryAvg:
         console.log('John\'s Team wins with a win average of ' + teamJohnAvg + ' over ' + teamMikeAvg + ' of Mike\'s team, and ' + teamMaryAvg + ' of Mary\'s team.');
         break;
@@ -134,28 +134,72 @@ switch(true){
 */
 
 //tips calculator
-function tipsCalculator(bill){
-    
+function tipsCalculator(bill) {
+
     if (bill < 50) {
         return bill * 0.2;
-    } else if (bill >= 50 && bill <= 200){
+    } else if (bill >= 50 && bill <= 200) {
         return bill * 0.15;
-    } else if (bill > 200){
+    } else if (bill > 200) {
         return bill * 0.1;
     }
 
 }
 
-var tips = [], totalBills = [];
+var tips = []
+var totalBills = new Array;
 
 //tips.push(tipsCalculator(124));
 //tips.push(tipsCalculator(48));
 //tips.push(tipsCalculator(268));
 tips = [tipsCalculator(124), tipsCalculator(48), tipsCalculator(268)]
 
-totalBills.push(tips[0]+124);
-totalBills.push(tips[1]+48);
-totalBills.push(tips[2]+268);
-console.log(tips);
-console.log(totalBills);
-//tipsCalculator(124,48,268);
+totalBills.push(tips[0] + 124);
+totalBills.push(tips[1] + 48);
+totalBills.push(tips[2] + 268);
+console.log(tips, totalBills);
+
+
+/* 
+*Basics of Javascript
+* - Objects
+* - Properties
+* - Methods
+*/
+//Who has the biggest BMI? (Same as first excercise but improved)
+
+var mark = {
+    name: 'Mark',
+    height: 1.80,
+    mass: 83,
+    calcBMI: function () {
+        this.BMI = this.mass / (this.height * this.height);
+        return this.BMI;
+    }
+};
+
+//Here I decided to use a diferent way of creating and populating the object
+var john = new Object();
+john.name = "John";
+john['height'] = 1.73;
+john['mass'] = 90;
+john['calcBMI'] = function () {
+    john['BMI'] = this.mass / (this.height * this.height);
+    return john['BMI'];
+}
+
+//mark.calcBMI();
+//john.calcBMI();
+//console.log(mark, john);
+//if (mark.BMI > john.BMI) {
+    
+if (mark.calcBMI() > john.calcBMI()) {
+    console.log('Mark has a bigger BMI than John');
+} else if (john['BMI'] > mark['BMI']) {
+    console.log('John has a bigger BMI than Mark');
+} else {
+    console.log(mark, john)
+    console.log('John and Mark have the same BMI.')
+}
+
+
