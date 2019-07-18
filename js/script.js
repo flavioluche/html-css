@@ -211,31 +211,28 @@ if (mark.calcBMI() > john.calcBMI()) {
 
 //tips calculator with loops objects and arrays
 
-var tips = []
-var totalTips = []
-var totalBills = []
-var teste;
-
-//An object with an array because the exercise statement required
 tips = {
     values: [124, 48, 268, 180, 42],
+    totalBills: [],
+    totalTips: [],
     calcTips: function () {
         for (i = 0; i < this.values.length; i++) {
             if (this.values[i] < 50) {
-                totalTips.push(this.values[i] * 0.2);
-                totalBills.push(totalTips[i]+this.values[i]);
+                this.totalTips.push(this.values[i] * 0.2);
+                this.totalBills.push(this.totalTips[i]+this.values[i]);
             } else if (this.values[i] >= 50 && this.values[i] <= 200) {
-                totalTips.push(this.values[i] * 0.15);
-                totalBills.push(totalTips[i]+this.values[i]);
+                this.totalTips.push(this.values[i] * 0.15);
+                this.totalBills.push(this.totalTips[i]+this.values[i]);
             } else if (this.values[i] > 200) {
-                totalTips.push(this.values[i] * 0.1);
-                totalBills.push(totalTips[i]+this.values[i]);
+                this.totalTips.push(this.values[i] * 0.1);
+                this.totalBills.push(this.totalTips[i]+this.values[i]);
             }
         }
     }
 }
 
+
 tips.calcTips();
-console.log(totalTips, totalBills);
+console.log(tips);
 
 
