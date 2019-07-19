@@ -255,7 +255,7 @@ console.log(tips);
 
 //which family have the biggest tips average,
 
-//this object is the same as above, just renamed as tipsJohn
+//this object is basically the same as above, just renamed as tipsJohn
 tipsJohn = {
     values: [124, 48, 268, 180, 42],
     totalBills: [],
@@ -310,13 +310,13 @@ function tipsAverage(tips) {
 tipsJohn.calcTips();
 tipsMark.calcTips();
 
-var tipsJohn = tipsAverage(tipsJohn.totalTips);
-var tipsMark = tipsAverage(tipsMark.totalTips);
+tipsJohn.tipsAverage = tipsAverage(tipsJohn.totalTips);
+tipsMark.tipsAverage = tipsAverage(tipsMark.totalTips);
 
-if (tipsJohn > tipsMark) {
-    console.log('John\'s family paid the highest tip avarage, with an average of ' + tipsJohn);
-} else if (tipsJohn < tipsMark) {
-    console.log('Mark\'s family paid the highest tip avarage, with an average of ' + tipsMark);
+if (tipsJohn.tipsAverage > tipsMark.tipsAverage) {
+    console.log('John\'s family paid the highest tip avarage, with an average of ' + tipsJohn.tipsAverage);
+} else if (tipsJohn.tipsAverage < tipsMark.tipsAverage) {
+    console.log('Mark\'s family paid the highest tip avarage, with an average of ' + tipsMark.tipsAverage);
 } else {
-    console.log('Both families have the same tip avarage, with an average of ' + tipsMark);
+    console.log('Both families have the same tip avarage, with an average of ' + tipsMark.tipsAverage);
 }
