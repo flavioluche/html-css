@@ -192,7 +192,7 @@ john['calcBMI'] = function () {
 //john.calcBMI();
 //console.log(mark, john);
 //if (mark.BMI > john.BMI) {
-    
+
 if (mark.calcBMI() > john.calcBMI()) {
     console.log('Mark has a bigger BMI than John');
 } else if (john['BMI'] > mark['BMI']) {
@@ -219,13 +219,13 @@ tips = {
         for (i = 0; i < this.values.length; i++) {
             if (this.values[i] < 50) {
                 this.totalTips.push(this.values[i] * 0.2);
-                this.totalBills.push(this.totalTips[i]+this.values[i]);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
             } else if (this.values[i] >= 50 && this.values[i] <= 200) {
                 this.totalTips.push(this.values[i] * 0.15);
-                this.totalBills.push(this.totalTips[i]+this.values[i]);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
             } else if (this.values[i] > 200) {
                 this.totalTips.push(this.values[i] * 0.1);
-                this.totalBills.push(this.totalTips[i]+this.values[i]);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
             }
         }
     }
@@ -236,3 +236,70 @@ tips.calcTips();
 console.log(tips);
 
 
+//which family have the biggest tips average,
+
+//this object is the same as above, just renamed as tipsJohn
+tipsJohn = {
+    values: [124, 48, 268, 180, 42],
+    totalBills: [],
+    totalTips: [],
+    calcTips: function () {
+        for (i = 0; i < this.values.length; i++) {
+            if (this.values[i] < 50) {
+                this.totalTips.push(this.values[i] * 0.2);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            } else if (this.values[i] >= 50 && this.values[i] <= 200) {
+                this.totalTips.push(this.values[i] * 0.15);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            } else if (this.values[i] > 200) {
+                this.totalTips.push(this.values[i] * 0.1);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            }
+        }
+    }
+}
+
+
+tipsMark = {
+    values: [77, 375, 110, 45],
+    totalBills: [],
+    totalTips: [],
+    calcTips: function () {
+        for (i = 0; i < this.values.length; i++) {
+            if (this.values[i] < 50) {
+                this.totalTips.push(this.values[i] * 0.2);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            } else if (this.values[i] >= 50 && this.values[i] <= 200) {
+                this.totalTips.push(this.values[i] * 0.15);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            } else if (this.values[i] > 200) {
+                this.totalTips.push(this.values[i] * 0.1);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            }
+        }
+    }
+}
+
+
+function tipsAverage(tips) {
+    var tipsSum = 0;
+    for (i = 0; i < tips.length; i++) {
+        tipsSum += tips[i];
+    }
+
+    return tipsSum / tips.length;
+}
+
+tipsJohn.calcTips();
+tipsMark.calcTips();
+
+var tipsJohn = tipsAverage(tipsJohn.totalTips);
+var tipsMark = tipsAverage(tipsMark.totalTips);
+
+if (tipsJohn > tipsMark) {
+    console.log('John\'s family paid the highest tip avarage, with an average of ' + tipsJohn);
+} else if (tipsJohn < tipsMark) {
+    console.log('Mark\'s family paid the highest tip avarage, with an average of ' + tipsMark);
+} else {
+    console.log('Both families have the same tip avarage, with an average of ' + tipsMark);
+}
