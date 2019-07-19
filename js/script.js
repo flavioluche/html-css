@@ -231,6 +231,23 @@ tips = {
     }
 }
 
+//another way to do the calculations inside the for statement
+/* for (i = 0; i < this.values.length; i++) {
+    var percentage;
+    var values = this.values[i];
+
+    if (values < 50 ){
+        percentage = .2;
+    } else if (values >= 50 && values <= 200){
+        percentage = .15;
+    } else {
+        percentage = .1;
+    }
+
+    this.totalTips[i] = values * percentage;
+    this.totalBills[i] = values + values * percentage;
+} */
+
 
 tips.calcTips();
 console.log(tips);
@@ -266,14 +283,14 @@ tipsMark = {
     totalTips: [],
     calcTips: function () {
         for (i = 0; i < this.values.length; i++) {
-            if (this.values[i] < 50) {
+            if (this.values[i] < 100) {
                 this.totalTips.push(this.values[i] * 0.2);
                 this.totalBills.push(this.totalTips[i] + this.values[i]);
-            } else if (this.values[i] >= 50 && this.values[i] <= 200) {
-                this.totalTips.push(this.values[i] * 0.15);
-                this.totalBills.push(this.totalTips[i] + this.values[i]);
-            } else if (this.values[i] > 200) {
+            } else if (this.values[i] >= 100 && this.values[i] <= 300) {
                 this.totalTips.push(this.values[i] * 0.1);
+                this.totalBills.push(this.totalTips[i] + this.values[i]);
+            } else if (this.values[i] > 300) {
+                this.totalTips.push(this.values[i] * 0.25);
                 this.totalBills.push(this.totalTips[i] + this.values[i]);
             }
         }
